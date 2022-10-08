@@ -41,9 +41,7 @@ public class UsuarioDaoImp implements UsuarioDao {
     public Usuario obtenerUsuarioPorCredenciales(Usuario usuario){
 
         String query = "FROM Usuario WHERE email = :email";
-        List<Usuario> lista = entityManager.createQuery(query)
-                .setParameter("email",usuario.getEmail())
-                .getResultList();
+        List<Usuario> lista = entityManager.createQuery(query).setParameter("email",usuario.getEmail()).getResultList();
 
         if (lista.isEmpty()){
             return null;
